@@ -1,0 +1,222 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7722,        213]
+NotebookOptionsPosition[      7145,        188]
+NotebookOutlinePosition[      7491,        203]
+CellTagsIndexPosition[      7448,        200]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", " ", "=", " ", "101398751"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"b", " ", "=", " ", "326147777"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", "Task1", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"factorize", "[", "a_", "]"}], ":=", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"factors", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"x", " ", "=", " ", "a"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", "2"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", 
+         RowBox[{"Sqrt", "[", "a", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", "\t", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Mod", "[", 
+            RowBox[{"x", ",", "i"}], "]"}], " ", "\[Equal]", " ", "0"}], ",", 
+          " ", 
+          RowBox[{
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"factors", ",", "i"}], "]"}], ";", " ", 
+           RowBox[{"x", "/=", "i"}], ";", " ", 
+           RowBox[{"i", "--"}], ";"}]}], "]"}]}], "\[IndentingNewLine]", 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "factors", "]"}], ";"}], "\[IndentingNewLine]", 
+     ")"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"aF", " ", "=", " ", 
+  RowBox[{"factorize", "[", "a", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bF", " ", "=", 
+   RowBox[{"factorize", "[", "b", "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.650183578773265*^9, 3.6501840876283865`*^9}, {
+  3.6501841206206856`*^9, 3.650184155973221*^9}, {3.6501844374493656`*^9, 
+  3.6501844438890095`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"311", ",", "571", ",", "571"}], "}"}]], "Output",
+ CellChangeTimes->{3.650184088290453*^9, 3.650184128596483*^9, 
+  3.6501844449621167`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"571", ",", "607", ",", "941"}], "}"}]], "Output",
+ CellChangeTimes->{3.650184088290453*^9, 3.650184128596483*^9, 
+  3.6501844454491653`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "Task2", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"EuklidAlgorithm", "[", 
+      RowBox[{"a_", ",", "b_"}], "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+      "dividend", ";", "\[IndentingNewLine]", "dividor", " ", ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"a", "\[GreaterEqual]", "b"}], ",", " ", 
+         RowBox[{
+          RowBox[{"dividend", " ", "=", " ", "a"}], ";", " ", 
+          RowBox[{"dividor", " ", "=", " ", "b"}]}], ",", " ", 
+         RowBox[{
+          RowBox[{"dividend", " ", "=", " ", "b"}], ";", " ", 
+          RowBox[{"dividor", " ", "=", " ", "a"}]}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{"dividor", " ", "\[NotEqual]", "0"}], ",", 
+         "\[IndentingNewLine]", "\t", 
+         RowBox[{
+          RowBox[{"r", " ", "=", " ", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"dividend", ",", " ", "dividor"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\t", 
+          RowBox[{"dividend", " ", "=", " ", "dividor"}], ";", 
+          "\[IndentingNewLine]", "\t", 
+          RowBox[{"dividor", " ", "=", " ", "r"}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "dividend", "]"}], ";"}], "\[IndentingNewLine]",
+       ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"EuklidAlgorithm", "[", 
+    RowBox[{"a", ",", "b"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.6501841704766707`*^9, {3.650184201933816*^9, 3.650184204199043*^9}, {
+   3.650184292650887*^9, 3.650184353846006*^9}, 3.6501844072153425`*^9, {
+   3.650184451048725*^9, 3.650184550078627*^9}, {3.6501852389805107`*^9, 
+   3.6501852900776196`*^9}}],
+
+Cell[BoxData["571"], "Output",
+ CellChangeTimes->{3.650185291167729*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "Task4", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"c", " ", "=", " ", "5999801"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"q", "=", "8"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"converter", "[", 
+      RowBox[{"c_", ",", "q_"}], "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{"result", "=", "\"\<\>\""}], ";", "\[IndentingNewLine]", "\t", 
+       RowBox[{"num", " ", "=", " ", "c"}], ";", "\[IndentingNewLine]", "\t", 
+       RowBox[{"degree", " ", "=", " ", "0"}], ";", "\[IndentingNewLine]", 
+       "\t", 
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{"num", "\[NotEqual]", "0"}], ",", "\[IndentingNewLine]", 
+         "\t\t", 
+         RowBox[{
+          RowBox[{"result", " ", "=", 
+           RowBox[{"StringJoin", "[", " ", 
+            RowBox[{"result", " ", ",", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"Mod", "[", 
+               RowBox[{"num", ",", "q"}], "]"}], "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\t\t", 
+          RowBox[{"num", "=", 
+           RowBox[{"Floor", "[", 
+            RowBox[{"num", "/", "q"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          "\t\t", 
+          RowBox[{"degree", "++"}], ";"}]}], "\[IndentingNewLine]", "\t", 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"StringReverse", "[", "result", "]"}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"converter", "[", 
+    RowBox[{"c", ",", "q"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.650185698421978*^9, 3.6501857000703077`*^9}, {
+  3.650185734165125*^9, 3.6501858118476586`*^9}, {3.6501858573887653`*^9, 
+  3.6501860211967196`*^9}, {3.6501860613337326`*^9, 3.650186128633462*^9}, {
+  3.6501862385744553`*^9, 3.6501862728388815`*^9}, {3.6501863443630333`*^9, 
+  3.6501864246860647`*^9}, {3.6501864720718026`*^9, 3.6501865210657015`*^9}, {
+  3.6501865995005445`*^9, 3.6501868041100035`*^9}, {3.650186835767168*^9, 
+  3.650186848974489*^9}}],
+
+Cell[BoxData["\<\"26706271\"\>"], "Output",
+ CellChangeTimes->{{3.6501866607626696`*^9, 3.6501867815897512`*^9}, {
+  3.6501868377743692`*^9, 3.650186849654557*^9}}]
+}, Open  ]]
+},
+WindowSize->{1680, 968},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"10.0 for Microsoft Windows (32-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1856, 44, 332, "Input"],
+Cell[2439, 68, 180, 4, 31, "Output"],
+Cell[2622, 74, 180, 4, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2839, 83, 1856, 43, 272, "Input"],
+Cell[4698, 128, 72, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4807, 134, 2155, 47, 312, "Input"],
+Cell[6965, 183, 164, 2, 64, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
