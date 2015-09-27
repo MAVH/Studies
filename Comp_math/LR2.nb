@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     35541,        910]
-NotebookOptionsPosition[     33503,        840]
-NotebookOutlinePosition[     33846,        855]
-CellTagsIndexPosition[     33803,        852]
+NotebookDataLength[     37390,        968]
+NotebookOptionsPosition[     35205,        892]
+NotebookOutlinePosition[     35548,        907]
+CellTagsIndexPosition[     35505,        904]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -805,6 +805,8 @@ Cell[BoxData["9"], "Print",
  CellChangeTimes->{3.6523528219648294`*^9}]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", "Task6", "*)"}], "\[IndentingNewLine]", 
@@ -827,16 +829,66 @@ Cell[BoxData[
   3.651396195953414*^9, 3.6513963222925625`*^9}}],
 
 Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    FractionBox["14", "27"], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox["23", "27"], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.652353058102292*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
  RowBox[{
   RowBox[{"(*", "Task7", "*)"}], "\[IndentingNewLine]", 
-  RowBox[{"Solve", "[", 
-   RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Solve", "[", 
     RowBox[{
      RowBox[{
-      RowBox[{"l", "^", "2"}], "+", 
-      RowBox[{"5", "*", "l"}], "+", "7"}], "\[Equal]", "0"}], ",", "l"}], 
-   "]"}]}]], "Input",
- CellChangeTimes->{{3.651396349298069*^9, 3.6513964085182977`*^9}}]
+      RowBox[{"Mod", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"l", "^", "2"}], "+", 
+         RowBox[{"5", "*", "l"}], "+", "7"}], ",", "23"}], "]"}], "\[Equal]", 
+      "0"}], ",", "l"}], "]"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"amount", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"i", " ", "=", " ", "0"}], ",", " ", 
+      RowBox[{"i", "\[LessEqual]", "22"}], ",", " ", 
+      RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"i", "^", "2"}], " ", "+", " ", 
+             RowBox[{"5", "*", "i"}], " ", "+", " ", "7"}], ",", "23"}], 
+           "]"}], "\[Equal]", "0"}], ",", " ", 
+         RowBox[{
+          RowBox[{"Print", "[", "i", "]"}], ";", " ", 
+          RowBox[{"amount", "++"}]}]}], "]"}], ";"}]}], "\[IndentingNewLine]",
+      "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"amount", " ", "\[Equal]", "0"}], ",", " ", 
+      RowBox[{"Print", "[", "\"\<No\>\"", "]"}]}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.651396349298069*^9, 3.6513964085182977`*^9}, {
+  3.652353124300437*^9, 3.6523531440566797`*^9}, {3.652353178827753*^9, 
+  3.65235326890457*^9}, {3.6523533186470833`*^9, 3.652353363795179*^9}}],
+
+Cell[BoxData["\<\"No\"\>"], "Print",
+ CellChangeTimes->{
+  3.652353271324777*^9, {3.652353365403982*^9, 3.652353370275592*^9}}]
+}, Open  ]]
 },
 WindowSize->{1350, 631},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -910,8 +962,14 @@ Cell[CellGroupData[{
 Cell[30901, 762, 1512, 39, 115, "Input"],
 Cell[32416, 803, 71, 1, 23, "Print"]
 }, Open  ]],
-Cell[32502, 807, 648, 19, 117, "Input"],
-Cell[33153, 828, 346, 10, 52, "Input"]
+Cell[CellGroupData[{
+Cell[32524, 809, 648, 19, 117, "Input"],
+Cell[33175, 830, 213, 7, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33425, 842, 1634, 43, 152, "Input"],
+Cell[35062, 887, 127, 2, 23, "Print"]
+}, Open  ]]
 }
 ]
 *)
