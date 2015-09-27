@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     34484,        879]
-NotebookOptionsPosition[     32518,        812]
-NotebookOutlinePosition[     32862,        827]
-CellTagsIndexPosition[     32819,        824]
+NotebookDataLength[     35541,        910]
+NotebookOptionsPosition[     33503,        840]
+NotebookOutlinePosition[     33846,        855]
+CellTagsIndexPosition[     33803,        852]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -758,24 +758,52 @@ Cell[BoxData["1143"], "Print",
 }, Open  ]]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", "Task5", "*)"}], "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"cc", "=", 
-    RowBox[{"Solve", "[", 
-     RowBox[{
+   RowBox[{
+    RowBox[{"cc", "=", 
+     RowBox[{"Solve", "[", 
       RowBox[{
        RowBox[{
-        RowBox[{"253", "*", 
-         SuperscriptBox["o", "3"]}], "+", 
-        RowBox[{"46", "*", 
-         SuperscriptBox["o", "2"]}], "+", 
-        RowBox[{"29", "*", "o"}], "-", "49"}], "\[Equal]", "5"}], ",", "o"}], 
-     "]"}]}], ";"}]}]], "Input",
+        RowBox[{
+         RowBox[{"253", "*", 
+          SuperscriptBox["o", "3"]}], "+", 
+         RowBox[{"46", "*", 
+          SuperscriptBox["o", "2"]}], "+", 
+         RowBox[{"29", "*", "o"}], "-", "49"}], "\[Equal]", "5"}], ",", "o"}],
+       "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"i", " ", "=", " ", "0"}], ",", " ", 
+     RowBox[{"i", "\[LessEqual]", "22"}], ",", " ", 
+     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", "\t", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"253", " ", "*", " ", 
+             RowBox[{"i", "^", "3"}]}], " ", "+", " ", 
+            RowBox[{"46", " ", "*", " ", 
+             RowBox[{"i", "^", "2"}]}], " ", "+", " ", 
+            RowBox[{"29", " ", "*", " ", "i"}], " ", "-", " ", "49"}], ",", 
+           " ", "23"}], "]"}], "\[Equal]", "5"}], ",", " ", 
+        RowBox[{"Print", "[", "i", "]"}]}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
  CellChangeTimes->{{3.6513929471014805`*^9, 3.6513929480859094`*^9}, {
    3.651395919849112*^9, 3.6513961097668743`*^9}, 3.651396166657329*^9, {
-   3.651396418971953*^9, 3.651396514948923*^9}}],
+   3.651396418971953*^9, 3.651396514948923*^9}, {3.6523528205764265`*^9, 
+   3.6523528210600276`*^9}}],
+
+Cell[BoxData["9"], "Print",
+ CellChangeTimes->{3.6523528219648294`*^9}]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{
@@ -812,7 +840,7 @@ Cell[BoxData[
 },
 WindowSize->{1350, 631},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -878,9 +906,12 @@ Cell[30687, 752, 88, 1, 23, "Print"],
 Cell[30778, 755, 74, 1, 23, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[30879, 760, 635, 17, 54, "Input"],
-Cell[31517, 779, 648, 19, 117, "Input"],
-Cell[32168, 800, 346, 10, 52, "Input"]
+Cell[CellGroupData[{
+Cell[30901, 762, 1512, 39, 115, "Input"],
+Cell[32416, 803, 71, 1, 23, "Print"]
+}, Open  ]],
+Cell[32502, 807, 648, 19, 117, "Input"],
+Cell[33153, 828, 346, 10, 52, "Input"]
 }
 ]
 *)
