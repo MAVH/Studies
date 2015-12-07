@@ -10,32 +10,28 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     12653,        336]
-NotebookOptionsPosition[     12108,        313]
-NotebookOutlinePosition[     12452,        328]
-CellTagsIndexPosition[     12409,        325]
+NotebookDataLength[     42294,       1045]
+NotebookOptionsPosition[     40654,        990]
+NotebookOutlinePosition[     40997,       1005]
+CellTagsIndexPosition[     40954,       1002]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
-Cell[BoxData[{
+Cell[BoxData[
  RowBox[{
   RowBox[{"u", "=", 
    RowBox[{"CharacterRange", "[", 
-    RowBox[{"\"\<a\>\"", ",", "\"\<z\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"u", "[", 
-  RowBox[{"[", "14", "]"}], "]"}]}], "Input",
+    RowBox[{"\"\<a\>\"", ",", "\"\<z\>\""}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.6579594940553665`*^9, 3.657959509720587*^9}, 
-   3.6579595660851917`*^9, {3.6579618930084763`*^9, 3.657961932582776*^9}}],
-
-Cell[BoxData["\<\"n\"\>"], "Output",
- CellChangeTimes->{{3.657961893477224*^9, 3.6579619332077823`*^9}}]
-}, Open  ]],
+   3.6579595660851917`*^9, {3.6579618930084763`*^9, 3.657961932582776*^9}, {
+   3.6584712576415467`*^9, 3.658471257766347*^9}}],
 
 Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", 
+   RowBox[{"B", ",", "A", ",", "dig", ",", "letters"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"getDigitalRepresentation", "[", "phrase_", "]"}], ":=", 
@@ -74,91 +70,114 @@ Cell[BoxData[{
     ")"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    RowBox[{"getLiteralRepresentation", "[", "digits_", "]"}], ":=", 
-    RowBox[{"(", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"letters", "=", 
-       RowBox[{"Table", "[", 
-        RowBox[{
-         RowBox[{"{", "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"Length", "[", "digits", "]"}], "}"}]}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"For", "[", 
-       RowBox[{
-        RowBox[{"i", "=", "1"}], ",", 
-        RowBox[{"i", "\[LessEqual]", 
-         RowBox[{"Length", "[", "digits", "]"}]}], ",", 
-        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"letters", "[", 
-           RowBox[{"[", "i", "]"}], "]"}], "=", 
-          RowBox[{"u", "[", 
-           RowBox[{"[", 
-            RowBox[{"digits", "[", 
-             RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}]}], ";"}]}], 
-       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Return", "[", "letters", "]"}], ";"}], "\[IndentingNewLine]", 
-     ")"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"splitIntoBlocks", "[", 
-    RowBox[{"messageDigits_", ",", "keyLength_"}], "]"}], ":=", 
+   RowBox[{"getLiteralRepresentation", "[", "digits_", "]"}], ":=", 
    RowBox[{"(", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"n", "=", 
-      RowBox[{"Length", "[", "messageDigits", "]"}]}], ";", 
+     RowBox[{"letters", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Length", "[", "digits", "]"}], "}"}]}], "]"}]}], ";", 
      "\[IndentingNewLine]", 
-     RowBox[{"i", "=", "1"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"parts", "=", 
-      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"While", "[", 
+     RowBox[{"For", "[", 
       RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
        RowBox[{"i", "\[LessEqual]", 
-        RowBox[{"n", "-", "keyLength"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Length", "[", "digits", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"block", "=", 
-         RowBox[{"messageDigits", "[", 
+        RowBox[{
+         RowBox[{"letters", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "=", 
+         RowBox[{"u", "[", 
           RowBox[{"[", 
-           RowBox[{"i", ";;", 
-            RowBox[{"(", 
-             RowBox[{"i", "+", "keyLength", "-", "1"}], ")"}]}], "]"}], 
-          "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"AppendTo", "[", 
-         RowBox[{"parts", ",", "block"}], "]"}], ";", "\[IndentingNewLine]", 
-        RowBox[{"i", "+=", "keyLength"}], ";"}]}], "\[IndentingNewLine]", 
-      "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"block", "=", 
-      RowBox[{"messageDigits", "[", 
-       RowBox[{"[", 
-        RowBox[{"i", ";;", "n"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"While", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"Length", "[", "block", "]"}], "<", "keyLength"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"AppendTo", "[", 
-         RowBox[{"block", ",", "0"}], "]"}], ";"}]}], "\[IndentingNewLine]", 
-      "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"AppendTo", "[", 
-      RowBox[{"parts", ",", "block"}], "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"Return", "[", "parts", "]"}], ";"}], "\[IndentingNewLine]", 
+           RowBox[{"Mod", "[", 
+            RowBox[{
+             RowBox[{"digits", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], ",", 
+             RowBox[{"Length", "[", "u", "]"}]}], "]"}], "]"}], "]"}]}], 
+        ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", "letters", "]"}], ";"}], "\[IndentingNewLine]", 
     ")"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"joinBlocks", "[", "blocks_", "]"}], ":=", 
+    RowBox[{"multiply", "[", 
+     RowBox[{"vector_", ",", "matrix1_"}], "]"}], " ", ":=", 
     RowBox[{"(", "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"digits", "=", 
-       RowBox[{"Select", "[", 
+      RowBox[{"c", " ", "=", " ", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", 
+        RowBox[{"i", " ", "\[LessEqual]", "  ", 
+         RowBox[{"Length", "[", "vector", "]"}]}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
         RowBox[{
-         RowBox[{"Flatten", "[", "blocks", "]"}], ",", "Positive"}], "]"}]}], 
-      ";", "\[IndentingNewLine]", 
-      RowBox[{"Return", "[", "digits", "]"}], ";"}], "\[IndentingNewLine]", 
+         RowBox[{"v", "=", 
+          RowBox[{"{", 
+           RowBox[{"vector", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "}"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"c1", " ", "=", " ", 
+          RowBox[{"matrix1", ".", 
+           RowBox[{"Transpose", "[", "v", "]"}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"c", ",", 
+           RowBox[{"Transpose", "[", "c1", "]"}]}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Flatten", "[", "c", "]"}], "]"}], ";"}], 
+     "\[IndentingNewLine]", ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"splitIntoBlocks", "[", 
+     RowBox[{"messageDigits_", ",", "keyLength_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"n", "=", 
+       RowBox[{"Length", "[", "messageDigits", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"i", "=", "1"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"parts", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"i", "\[LessEqual]", 
+         RowBox[{"n", "-", "keyLength"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"block", "=", 
+          RowBox[{"messageDigits", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ";;", 
+             RowBox[{"(", 
+              RowBox[{"i", "+", "keyLength", "-", "1"}], ")"}]}], "]"}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"parts", ",", "block"}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"i", "+=", "keyLength"}], ";"}]}], "\[IndentingNewLine]", 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"block", "=", 
+       RowBox[{"messageDigits", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ";;", "n"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "block", "]"}], "<", "keyLength"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"block", ",", "0"}], "]"}], ";"}]}], "\[IndentingNewLine]", 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"parts", ",", "block"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "parts", "]"}], ";"}], "\[IndentingNewLine]", 
      ")"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -176,43 +195,20 @@ Cell[BoxData[{
      RowBox[{"bs", " ", "=", " ", 
       RowBox[{"splitIntoBlocks", "[", 
        RowBox[{"dig", ",", " ", "m"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"Print", "[", "bs", "]"}], ";", "\[IndentingNewLine]", 
      RowBox[{"c", " ", "=", " ", 
-      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"i", " ", "=", " ", "1"}], ",", 
-       RowBox[{"i", " ", "\[LessEqual]", "  ", 
-        RowBox[{"Length", "[", "bs", "]"}]}], ",", 
-       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"v", "=", 
-         RowBox[{"{", 
-          RowBox[{"bs", "[", 
-           RowBox[{"[", "i", "]"}], "]"}], "}"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"c1", " ", "=", " ", 
-         RowBox[{"A", ".", 
-          RowBox[{"Transpose", "[", "v", "]"}]}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"AppendTo", "[", 
-         RowBox[{"c", ",", 
-          RowBox[{"Transpose", "[", "c1", "]"}]}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"multiply", "[", 
+       RowBox[{"bs", ",", "A"}], "]"}]}], ";", "\[IndentingNewLine]", 
      RowBox[{"Return", "[", 
-      RowBox[{"Flatten", "[", 
-       RowBox[{"Mod", "[", 
-        RowBox[{"c", ",", 
-         RowBox[{"Length", "[", "u", "]"}]}], "]"}], "]"}], "]"}], ";"}], 
-    "\[IndentingNewLine]", "\[IndentingNewLine]", ")"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+      RowBox[{"Flatten", "[", "c", "]"}], "]"}], ";"}], "\[IndentingNewLine]",
+     "\[IndentingNewLine]", ")"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"Decrypt", "[", 
     RowBox[{"cypher_", ",", " ", "A_"}], "]"}], " ", ":=", " ", 
-   RowBox[{"(", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"B", " ", "="}], " ", ";", "\[IndentingNewLine]", 
+     RowBox[{"B", " ", "=", " ", 
+      RowBox[{"Inverse", "[", "A", "]"}]}], ";", "\[IndentingNewLine]", 
      RowBox[{"m", " ", "=", " ", 
       RowBox[{"Length", "[", 
        RowBox[{"B", "[", 
@@ -220,62 +216,85 @@ Cell[BoxData[{
      RowBox[{"bs", " ", "=", " ", 
       RowBox[{"splitIntoBlocks", "[", 
        RowBox[{"cypher", ",", " ", "m"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"Print", "[", "bs", "]"}], ";", "\[IndentingNewLine]", 
      RowBox[{"mm", "=", " ", 
-      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"i", " ", "=", " ", "1"}], ",", 
-       RowBox[{"i", " ", "\[LessEqual]", "  ", 
-        RowBox[{"Length", "[", "bs", "]"}]}], ",", 
-       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"v", "=", 
-         RowBox[{"{", 
-          RowBox[{"bs", "[", 
-           RowBox[{"[", "i", "]"}], "]"}], "}"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"m1", " ", "=", " ", 
-         RowBox[{"B", ".", 
-          RowBox[{"Transpose", "[", "v", "]"}]}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"AppendTo", "[", 
-         RowBox[{"mm", ",", 
-          RowBox[{"Transpose", "[", "m1", "]"}]}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"jb", " ", "=", " ", 
-      RowBox[{"joinBlocks", "[", "mm", "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"Print", "[", "jb", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"multiply", "[", 
+       RowBox[{"bs", ",", "B"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"res", " ", "=", " ", 
+      RowBox[{"Select", "[", 
+       RowBox[{"mm", ",", "Positive"}], "]"}]}], ";", "\[IndentingNewLine]", 
      RowBox[{"mess", " ", "=", " ", 
-      RowBox[{"getLiteralRepresentation", "[", "jb", "]"}]}], ";", 
+      RowBox[{"getLiteralRepresentation", "[", "res", "]"}]}], ";", 
      "\[IndentingNewLine]", 
      RowBox[{"Return", "[", "mess", "]"}], ";"}], "\[IndentingNewLine]", 
-    "\[IndentingNewLine]", ")"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQBWIQ3dSwQIrR8bXjhawcSxB9ct8qOxDNY38QTAf0LXYB
-0bfO24WA6KLPGyJB9CLXKVEgOu3/ojgQvcBVJh1Ex83uzgHRBdITwXT/Fbsi
-EH2w32QCiM67YTkXRHsdVtgNoo9EZu8H0Q9UDC6C6G3xT66B6LLDuddBdNbd
-1BcgurTE4SWILrnJ/AtEyzXK/AbRBiz3/4FoP/cifiYgPeFoqjCI1jweaACi
-p7wudwXRyfph3mB55XWhIFrGziEWRF9b+CARRK/R/50EorksM3JA9IFC8zwQ
-ndQtXgGi3Tg+NYPoNsPmThCdsUa5C0Svfck2A0Rr3z+wAkQDAEVPjus=
-  "]],
+    ")"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.657959637015687*^9, 3.6579598833880386`*^9}, {
+   3.657959925335789*^9, 3.657959926038946*^9}, {3.657959973111122*^9, 
+   3.6579600979628725`*^9}, {3.6579601415297174`*^9, 3.6579601486335*^9}, {
+   3.6579601810936766`*^9, 3.657960248883499*^9}, {3.6579602923627157`*^9, 
+   3.6579602925345993`*^9}, {3.657960337963447*^9, 3.657960577642548*^9}, {
+   3.6579606818076696`*^9, 3.657960921023839*^9}, {3.6579609553547077`*^9, 
+   3.6579610975045013`*^9}, {3.6579611431366835`*^9, 3.65796114743011*^9}, {
+   3.657961283183278*^9, 3.657961290014216*^9}, {3.6579614241202946`*^9, 
+   3.6579614328907614`*^9}, {3.657961462969261*^9, 3.657961595571204*^9}, {
+   3.6579616271803665`*^9, 3.6579618585555615`*^9}, {3.657962027747507*^9, 
+   3.6579620746932845`*^9}, {3.657962157441841*^9, 3.6579622180075817`*^9}, {
+   3.6579622550197554`*^9, 3.6579622638495693`*^9}, {3.657962339256963*^9, 
+   3.6579623537326355`*^9}, {3.6579624327357645`*^9, 3.65796252756351*^9}, {
+   3.6579625720997953`*^9, 3.6579625771147957`*^9}, {3.657962688216025*^9, 
+   3.657962822027242*^9}, {3.6584448807619743`*^9, 3.6584452462082167`*^9}, {
+   3.65844532246115*^9, 3.658445501331064*^9}, {3.6584455398631325`*^9, 
+   3.6584455455727425`*^9}, {3.658445608503253*^9, 3.658445651964929*^9}, {
+   3.6584457117598343`*^9, 3.6584457521795053`*^9}, 3.6584458151568155`*^9, {
+   3.6584458719097157`*^9, 3.6584458787425275`*^9}, {3.658445960315071*^9, 
+   3.65844597120389*^9}, {3.658446124966325*^9, 3.6584461339519405`*^9}, {
+   3.658446183856428*^9, 3.658446193076044*^9}, {3.6584723857060976`*^9, 
+   3.658472402351327*^9}, {3.65847268329222*^9, 3.658472686568226*^9}, {
+   3.6584727959088182`*^9, 3.658472799294024*^9}, {3.6584729126126227`*^9, 
+   3.6584729172458315`*^9}, {3.658473157470653*^9, 3.6584731582350545`*^9}, {
+   3.6584733582274055`*^9, 3.6584733801766443`*^9}, {3.6584745788827496`*^9, 
+   3.658474666336503*^9}, {3.6584747962379313`*^9, 3.6584747963939314`*^9}, {
+   3.6584748557208357`*^9, 3.6584748837384853`*^9}, {3.658474926997361*^9, 
+   3.6584749533770075`*^9}, 3.658476534330584*^9}],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"Encrypt", "[", 
-  RowBox[{"\"\<qoeinat\>\"", ",", 
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"message", " ", "=", " ", "\"\<qoeinat\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"keyMatrix", " ", "=", " ", 
    RowBox[{"(", "\[NoBreak]", GridBox[{
       {"4", "5", "6"},
       {"8", "2", "3"},
       {"7", "1", "9"}
-     }], "\[NoBreak]", ")"}]}], "]"}]], "Input",
+     }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cypher", " ", "=", " ", 
+   RowBox[{"Encrypt", "[", 
+    RowBox[{"message", " ", ",", "keyMatrix"}], " ", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<cypher=\>\"", ",", "cypher"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<message=\>\"", ",", 
+    RowBox[{"Decrypt", "[", 
+     RowBox[{"cypher", ",", "keyMatrix"}], " ", "]"}]}], "]"}], 
+  ";"}]}], "Input",
  CellChangeTimes->{{3.657960543925767*^9, 3.6579605845650153`*^9}, {
    3.6579607827458444`*^9, 3.6579607828708487`*^9}, {3.6579609337473965`*^9, 
    3.657960940775964*^9}, {3.6579611024225035`*^9, 3.657961129892205*^9}, {
    3.6579618633566036`*^9, 3.6579618787024393`*^9}, {3.6579619116929502`*^9, 
    3.6579619761582994`*^9}, {3.657962039061948*^9, 3.6579620392494564`*^9}, 
-   3.657962280835241*^9, 3.657962658502388*^9}],
+   3.657962280835241*^9, 3.657962658502388*^9, {3.6584455491139483`*^9, 
+   3.658445568941583*^9}, {3.658472730560303*^9, 3.658472750575138*^9}, 
+   3.6584728703209486`*^9, {3.6584729352326627`*^9, 3.6584730818885202`*^9}, {
+   3.65847397577009*^9, 3.6584741000867085`*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -286,34 +305,692 @@ Cell[BoxData[
     RowBox[{"9", ",", "14", ",", "1"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"20", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Print",
- CellChangeTimes->{{3.6579622667084026`*^9, 3.6579622817415185`*^9}, {
-  3.6579624424915867`*^9, 3.6579624687403927`*^9}, {3.657962633792507*^9, 
-  3.6579626595805616`*^9}}],
+ CellChangeTimes->{
+  3.6584725787720366`*^9, 3.6584727544751453`*^9, 3.6584728095276423`*^9, 
+   3.6584728761865587`*^9, 3.658473026602023*^9, {3.6584730607660832`*^9, 
+   3.6584730845249248`*^9}, 3.6584739785312953`*^9, {3.6584740567654324`*^9, 
+   3.658474082427478*^9}, 3.6584746140452113`*^9, 3.6584746563836856`*^9, 
+   3.658474809341954*^9, 3.6584748909924974`*^9, 3.6584749423321877`*^9}],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "17", ",", "25", ",", "23", ",", "8", ",", "25", ",", "8", ",", "2", ",", 
-   "4", ",", "10"}], "}"}]], "Output",
- CellChangeTimes->{{3.6579611100416384`*^9, 3.6579611496506376`*^9}, 
-   3.657961293033517*^9, 3.657961436530594*^9, {3.6579618814986095`*^9, 
-   3.6579618852884445`*^9}, 3.6579619379391356`*^9, {3.6579619776965694`*^9, 
-   3.6579619999495244`*^9}, {3.6579620335762467`*^9, 3.657962078265217*^9}, {
-   3.6579621735955553`*^9, 3.657962212894149*^9}, {3.6579622667084026`*^9, 
-   3.6579622817415185`*^9}, {3.657962442522844*^9, 3.6579624687403927`*^9}, {
-   3.657962633792507*^9, 3.6579626595805616`*^9}}],
-
-Cell[BoxData[""], "Print",
- GeneratedCell->False,
- CellAutoOverwrite->False,
+ InterpretationBox[
+  RowBox[{"\<\"cypher=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "173", ",", "181", ",", "179", ",", "112", ",", "103", ",", "86", ",", 
+     "80", ",", "160", ",", "140"}], "}"}]}],
+  SequenceForm["cypher=", {173, 181, 179, 112, 103, 86, 80, 160, 140}],
+  Editable->False]], "Print",
  CellChangeTimes->{
-  3.65796058492443*^9, {3.657960693876474*^9, 3.6579607836549835`*^9}, {
-   3.6579609248432183`*^9, 3.6579609421459165`*^9}, 3.657961107928379*^9}]
+  3.6584725787720366`*^9, 3.6584727544751453`*^9, 3.6584728095276423`*^9, 
+   3.6584728761865587`*^9, 3.658473026602023*^9, {3.6584730607660832`*^9, 
+   3.6584730845249248`*^9}, 3.6584739785312953`*^9, {3.6584740567654324`*^9, 
+   3.658474082427478*^9}, 3.6584746140452113`*^9, 3.6584746563836856`*^9, 
+   3.658474809341954*^9, 3.6584748909924974`*^9, 3.658474942347788*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"message=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"\<\"q\"\>", ",", "\<\"o\"\>", ",", "\<\"e\"\>", ",", "\<\"i\"\>",
+      ",", "\<\"n\"\>", ",", "\<\"a\"\>", ",", "\<\"t\"\>"}], "}"}]}],
+  SequenceForm["message=", {"q", "o", "e", "i", "n", "a", "t"}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6584725787720366`*^9, 3.6584727544751453`*^9, 3.6584728095276423`*^9, 
+   3.6584728761865587`*^9, 3.658473026602023*^9, {3.6584730607660832`*^9, 
+   3.6584730845249248`*^9}, 3.6584739785312953`*^9, {3.6584740567654324`*^9, 
+   3.658474082427478*^9}, 3.6584746140452113`*^9, 3.6584746563836856`*^9, 
+   3.658474809341954*^9, 3.6584748909924974`*^9, 3.658474942347788*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"DEncrypt", "[", 
+      RowBox[{"message_", ",", "A1_", ",", "A2_"}], "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"dig", " ", "=", " ", 
+        RowBox[{"getDigitalRepresentation", "[", "message", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"m1", " ", "=", " ", 
+        RowBox[{"Length", "[", 
+         RowBox[{"A1", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"m2", " ", "=", " ", 
+        RowBox[{"Length", "[", 
+         RowBox[{"A2", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"bs", " ", "=", " ", 
+        RowBox[{"splitIntoBlocks", "[", 
+         RowBox[{"dig", ",", " ", "m1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"c", " ", "=", " ", 
+        RowBox[{"multiply", "[", 
+         RowBox[{"bs", ",", "A1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"cc", " ", "=", " ", 
+        RowBox[{"splitIntoBlocks", "[", 
+         RowBox[{"c", ",", "m2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"res", " ", "=", " ", 
+        RowBox[{"multiply", "[", 
+         RowBox[{"cc", ",", "A2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "res", "]"}], ";"}], "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DDecrypt", "[", 
+      RowBox[{"cypher_", ",", " ", "A1_", ",", "A2_"}], "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"B1", "=", " ", 
+        RowBox[{"Inverse", "[", "A1", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"B2", "=", " ", 
+        RowBox[{"Inverse", "[", "A2", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"m1", " ", "=", " ", 
+        RowBox[{"Length", "[", 
+         RowBox[{"B", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"m2", "=", " ", 
+        RowBox[{"Length", "[", 
+         RowBox[{"B", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"bs", " ", "=", " ", 
+        RowBox[{"splitIntoBlocks", "[", 
+         RowBox[{"cypher", ",", " ", "m2"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"res1", "=", " ", 
+        RowBox[{"multiply", "[", 
+         RowBox[{"bs", ",", "B2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"res2", "=", " ", 
+        RowBox[{"multiply", "[", 
+         RowBox[{
+          RowBox[{"splitIntoBlocks", "[", 
+           RowBox[{"res1", ",", "m1"}], "]"}], ",", "B1"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"res", " ", "=", " ", 
+        RowBox[{"Select", "[", 
+         RowBox[{"res2", ",", "Positive"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"mess", " ", "=", " ", 
+        RowBox[{"getLiteralRepresentation", "[", "res", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "mess", "]"}], ";"}], "\[IndentingNewLine]", 
+      ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"message", " ", "=", " ", "\"\<qoeinat\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"keyMatrix1", " ", "=", " ", 
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {"4", "5", "6"},
+        {"8", "2", "3"},
+        {"7", "1", "9"}
+       }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"keyMatrix2", " ", "=", " ", 
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {"3", "4", "8", "3", "6"},
+        {"4", "9", "1", "4", "3"},
+        {"4", "5", "3", "7", "4"},
+        {"8", "8", "4", "2", "4"},
+        {"3", "9", "7", "4", "3"}
+       }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cypher", " ", "=", " ", 
+     RowBox[{"DEncrypt", "[", 
+      RowBox[{"message", " ", ",", 
+       RowBox[{"keyMatrix", " ", "1"}], ",", 
+       RowBox[{"keyMatrix", " ", "2"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<cypher=\>\"", ",", "cypher"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<message=\>\"", ",", 
+      RowBox[{"DDecrypt", "[", 
+       RowBox[{"cypher", ",", 
+        RowBox[{"keyMatrix", " ", "1"}], ",", 
+        RowBox[{"keyMatrix", " ", "2"}]}], " ", "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6584741285723586`*^9, 3.6584742320161405`*^9}, {
+   3.6584743405767307`*^9, 3.658474571691137*^9}, {3.65847467585252*^9, 
+   3.65847477268189*^9}, {3.658474967994233*^9, 3.6584749859966645`*^9}, {
+   3.658475109580082*^9, 3.6584751439001417`*^9}, {3.658475196253834*^9, 
+   3.65847525090073*^9}, 3.6584752848931894`*^9, {3.658475320367652*^9, 
+   3.658475368337736*^9}, 3.6584765683854437`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"cypher=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "5342", ",", "4566", ",", "6006", ",", "2958", ",", "2720", ",", "3322", 
+     ",", "3920", ",", "2760", ",", "3960"}], "}"}]}],
+  SequenceForm[
+  "cypher=", {5342, 4566, 6006, 2958, 2720, 3322, 3920, 2760, 3960}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658474503066616*^9, 3.65847455652791*^9, 3.658475119392499*^9, {
+   3.6584752630843515`*^9, 3.6584752870771933`*^9}, 3.6584753721129427`*^9, 
+   3.658476571349449*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"message=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"\<\"q\"\>", ",", "\<\"o\"\>", ",", "\<\"e\"\>", ",", "\<\"i\"\>",
+      ",", "\<\"n\"\>", ",", "\<\"a\"\>", ",", "\<\"t\"\>"}], "}"}]}],
+  SequenceForm["message=", {"q", "o", "e", "i", "n", "a", "t"}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658474503066616*^9, 3.65847455652791*^9, 3.658475119392499*^9, {
+   3.6584752630843515`*^9, 3.6584752870771933`*^9}, 3.6584753721129427`*^9, 
+   3.6584765713650494`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"keyMatrix1", " ", "=", " ", 
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {"4", "5", "6"},
+        {"8", "2", "3"},
+        {"7", "1", "9"}
+       }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"keyMatrix2", " ", "=", " ", 
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {"3", "4", "8", "3", "6"},
+        {"4", "9", "1", "4", "3"},
+        {"4", "5", "3", "7", "4"},
+        {"8", "8", "4", "2", "4"},
+        {"3", "9", "7", "4", "3"}
+       }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"message1", " ", "=", " ", "\"\<school\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"message2", "=", "\"\<cryptography\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"message3", "=", "\"\<onceuponatimetherelivedahobbit\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<first message\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<One matrix\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cypher1", "=", 
+     RowBox[{
+      RowBox[{"Timing", "[", 
+       RowBox[{"Encrypt", "[", 
+        RowBox[{"message1", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}]}], "]"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<cypher1 = \>\"", ",", " ", "cypher1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<result=\>\"", ",", 
+      RowBox[{"Timing", "[", 
+       RowBox[{"Decrypt", "[", 
+        RowBox[{"cypher1", " ", ",", "keyMatrix1"}], " ", "]"}], "]"}]}], 
+     "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Two matrices\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cypher2", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"Timing", "[", 
+       RowBox[{"DEncrypt", "[", 
+        RowBox[{"message1", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}], ",", 
+         RowBox[{"keyMatrix", " ", "2"}]}], "]"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<cypher2 = \>\"", ",", " ", "cypher2"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<result=\>\"", ",", 
+      RowBox[{"Timing", "[", 
+       RowBox[{"DDecrypt", "[", 
+        RowBox[{"cypher2", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}], ",", 
+         RowBox[{"keyMatrix", " ", "2"}]}], "]"}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<second message\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<One matrix\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cypher1", "=", 
+     RowBox[{
+      RowBox[{"Timing", "[", 
+       RowBox[{"Encrypt", "[", 
+        RowBox[{"message2", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}]}], "]"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<cypher1 = \>\"", ",", " ", "cypher1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<result=\>\"", ",", 
+      RowBox[{"Timing", "[", 
+       RowBox[{"Decrypt", "[", 
+        RowBox[{"cypher1", " ", ",", "keyMatrix1"}], " ", "]"}], "]"}]}], 
+     "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Two matrices\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cypher2", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"Timing", "[", 
+       RowBox[{"DEncrypt", "[", 
+        RowBox[{"message2", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}], ",", 
+         RowBox[{"keyMatrix", " ", "2"}]}], "]"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<cypher2 = \>\"", ",", " ", "cypher2"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<result=\>\"", ",", 
+      RowBox[{"Timing", "[", 
+       RowBox[{"DDecrypt", "[", 
+        RowBox[{"cypher2", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}], ",", 
+         RowBox[{"keyMatrix", " ", "2"}]}], "]"}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<third message\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<One matrix\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cypher1", "=", 
+     RowBox[{
+      RowBox[{"Timing", "[", 
+       RowBox[{"Encrypt", "[", 
+        RowBox[{"message3", ",", 
+         RowBox[{"keyMatrix", " ", "1"}]}], "]"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<cypher1 = \>\"", ",", " ", "cypher1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<result=\>\"", ",", 
+      RowBox[{"Timing", "[", 
+       RowBox[{"Decrypt", "[", 
+        RowBox[{"cypher1", " ", ",", "keyMatrix1"}], " ", "]"}], "]"}]}], 
+     "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Two matrices\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cypher2", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"Timing", "[", 
+       RowBox[{"DEncrypt", "[", 
+        RowBox[{"message3", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}], ",", 
+         RowBox[{"keyMatrix", " ", "2"}]}], "]"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<cypher2 = \>\"", ",", " ", "cypher2"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<result=\>\"", ",", 
+      RowBox[{"Timing", "[", 
+       RowBox[{"DDecrypt", "[", 
+        RowBox[{"cypher2", " ", ",", 
+         RowBox[{"keyMatrix", " ", "1"}], ",", 
+         RowBox[{"keyMatrix", " ", "2"}]}], "]"}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6584754249034357`*^9, 3.6584755447272463`*^9}, {
+  3.658475598828141*^9, 3.658475646501825*^9}, {3.6584756782478805`*^9, 
+  3.6584759172559004`*^9}, {3.6584760274700937`*^9, 3.658476380607914*^9}, {
+  3.6584766054823093`*^9, 3.6584766184303317`*^9}, {3.658476700455276*^9, 
+  3.658476709612492*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"first message\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData["\<\"One matrix\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"cypher1 = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "139", ",", "182", ",", "208", ",", "207", ",", "186", ",", "228"}], 
+    "}"}]}],
+  SequenceForm["cypher1 = ", {139, 182, 208, 207, 186, 228}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"result=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"s\"\>", ",", "\<\"c\"\>", ",", "\<\"h\"\>", 
+       ",", "\<\"o\"\>", ",", "\<\"o\"\>", ",", "\<\"l\"\>"}], "}"}]}], 
+    "}"}]}],
+  SequenceForm["result=", {0., {"s", "c", "h", "o", "o", "l"}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData["\<\"Two matrices\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"cypher2 = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "5428", ",", "4200", ",", "6054", ",", "6252", ",", "5424", ",", "7374"}],
+     "}"}]}],
+  SequenceForm["cypher2 = ", {5428, 4200, 6054, 6252, 5424, 7374}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"result=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"s\"\>", ",", "\<\"c\"\>", ",", "\<\"h\"\>", 
+       ",", "\<\"o\"\>", ",", "\<\"o\"\>", ",", "\<\"l\"\>"}], "}"}]}], 
+    "}"}]}],
+  SequenceForm["result=", {0., {"s", "c", "h", "o", "o", "l"}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData["\<\"second message\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData["\<\"One matrix\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.658476621940338*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"cypher1 = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "252", ",", "135", ",", "264", ",", "254", ",", "213", ",", "267", ",", 
+     "124", ",", "95", ",", "76", ",", "254", ",", "219", ",", "345"}], 
+    "}"}]}],
+  SequenceForm[
+  "cypher1 = ", {252, 135, 264, 254, 213, 267, 124, 95, 76, 254, 219, 345}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"result=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"c\"\>", ",", "\<\"r\"\>", ",", "\<\"y\"\>", 
+       ",", "\<\"p\"\>", ",", "\<\"t\"\>", ",", "\<\"o\"\>", ",", "\<\"g\"\>",
+        ",", "\<\"r\"\>", ",", "\<\"a\"\>", ",", "\<\"p\"\>", 
+       ",", "\<\"h\"\>", ",", "\<\"y\"\>"}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "result=", {
+   0., {"c", "r", "y", "p", "t", "o", "g", "r", "a", "p", "h", "y"}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData["\<\"Two matrices\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"cypher2 = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "6534", ",", "6156", ",", "8550", ",", "7366", ",", "6518", ",", "8788", 
+     ",", "2854", ",", "2820", ",", "3294", ",", "8362", ",", "7010", ",", 
+     "10204"}], "}"}]}],
+  SequenceForm[
+  "cypher2 = ", {6534, 6156, 8550, 7366, 6518, 8788, 2854, 2820, 3294, 8362, 
+   7010, 10204}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"result=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"c\"\>", ",", "\<\"r\"\>", ",", "\<\"y\"\>", 
+       ",", "\<\"p\"\>", ",", "\<\"t\"\>", ",", "\<\"o\"\>", ",", "\<\"g\"\>",
+        ",", "\<\"r\"\>", ",", "\<\"a\"\>", ",", "\<\"p\"\>", 
+       ",", "\<\"h\"\>", ",", "\<\"y\"\>"}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "result=", {
+   0., {"c", "r", "y", "p", "t", "o", "g", "r", "a", "p", "h", "y"}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData["\<\"third message\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData["\<\"One matrix\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"cypher1 = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "148", ",", "157", ",", "146", ",", "221", ",", "130", ",", "200", ",", 
+     "136", ",", "151", ",", "128", ",", "203", ",", "217", ",", "266", ",", 
+     "168", ",", "104", ",", "127", ",", "140", ",", "91", ",", "98", ",", 
+     "225", ",", "180", ",", "291", ",", "46", ",", "51", ",", "48", ",", 
+     "119", ",", "100", ",", "89", ",", "173", ",", "94", ",", "203"}], 
+    "}"}]}],
+  SequenceForm[
+  "cypher1 = ", {148, 157, 146, 221, 130, 200, 136, 151, 128, 203, 217, 266, 
+   168, 104, 127, 140, 91, 98, 225, 180, 291, 46, 51, 48, 119, 100, 89, 173, 
+   94, 203}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"result=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"o\"\>", ",", "\<\"n\"\>", ",", "\<\"c\"\>", 
+       ",", "\<\"e\"\>", ",", "\<\"u\"\>", ",", "\<\"p\"\>", ",", "\<\"o\"\>",
+        ",", "\<\"n\"\>", ",", "\<\"a\"\>", ",", "\<\"t\"\>", 
+       ",", "\<\"i\"\>", ",", "\<\"m\"\>", ",", "\<\"e\"\>", ",", "\<\"t\"\>",
+        ",", "\<\"h\"\>", ",", "\<\"e\"\>", ",", "\<\"r\"\>", 
+       ",", "\<\"e\"\>", ",", "\<\"l\"\>", ",", "\<\"i\"\>", ",", "\<\"v\"\>",
+        ",", "\<\"e\"\>", ",", "\<\"d\"\>", ",", "\<\"a\"\>", 
+       ",", "\<\"h\"\>", ",", "\<\"o\"\>", ",", "\<\"b\"\>", ",", "\<\"b\"\>",
+        ",", "\<\"i\"\>", ",", "\<\"t\"\>"}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "result=", {
+   0., {"o", "n", "c", "e", "u", "p", "o", "n", "a", "t", "i", "m", "e", "t", 
+     "h", "e", "r", "e", "l", "i", "v", "e", "d", "a", "h", "o", "b", "b", 
+     "i", "t"}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData["\<\"Two matrices\"\>"], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"cypher2 = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "4506", ",", "3872", ",", "5014", ",", "5468", ",", "5256", ",", "6954", 
+     ",", "4134", ",", "3548", ",", "4510", ",", "6986", ",", "5712", ",", 
+     "8064", ",", "3908", ",", "3866", ",", "4846", ",", "3206", ",", "3192", 
+     ",", "3906", ",", "7092", ",", "6066", ",", "8748", ",", "1454", ",", 
+     "1228", ",", "1610", ",", "3020", ",", "2838", ",", "3468", ",", "4760", 
+     ",", "4362", ",", "6264"}], "}"}]}],
+  SequenceForm[
+  "cypher2 = ", {4506, 3872, 5014, 5468, 5256, 6954, 4134, 3548, 4510, 6986, 
+   5712, 8064, 3908, 3866, 4846, 3206, 3192, 3906, 7092, 6066, 8748, 1454, 
+   1228, 1610, 3020, 2838, 3468, 4760, 4362, 6264}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"result=\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"o\"\>", ",", "\<\"n\"\>", ",", "\<\"c\"\>", 
+       ",", "\<\"e\"\>", ",", "\<\"u\"\>", ",", "\<\"p\"\>", ",", "\<\"o\"\>",
+        ",", "\<\"n\"\>", ",", "\<\"a\"\>", ",", "\<\"t\"\>", 
+       ",", "\<\"i\"\>", ",", "\<\"m\"\>", ",", "\<\"e\"\>", ",", "\<\"t\"\>",
+        ",", "\<\"h\"\>", ",", "\<\"e\"\>", ",", "\<\"r\"\>", 
+       ",", "\<\"e\"\>", ",", "\<\"l\"\>", ",", "\<\"i\"\>", ",", "\<\"v\"\>",
+        ",", "\<\"e\"\>", ",", "\<\"d\"\>", ",", "\<\"a\"\>", 
+       ",", "\<\"h\"\>", ",", "\<\"o\"\>", ",", "\<\"b\"\>", ",", "\<\"b\"\>",
+        ",", "\<\"i\"\>", ",", "\<\"t\"\>"}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "result=", {
+   0., {"o", "n", "c", "e", "u", "p", "o", "n", "a", "t", "i", "m", "e", "t", 
+     "h", "e", "r", "e", "l", "i", "v", "e", "d", "a", "h", "o", "b", "b", 
+     "i", "t"}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.658475921062307*^9, 3.658476029232897*^9, {3.6584760622425547`*^9, 
+   3.6584760915082064`*^9}, {3.658476267944516*^9, 3.6584762839345446`*^9}, 
+   3.658476384367521*^9, {3.6584765472630067`*^9, 3.6584765761854577`*^9}, 
+   3.6584766219559383`*^9}]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1350, 631},
+WindowSize->{1350, 633},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -327,16 +1004,48 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[557, 20, 346, 7, 31, "Input"],
+Cell[906, 29, 9994, 227, 1232, "Input"],
 Cell[CellGroupData[{
-Cell[579, 22, 378, 9, 52, "Input"],
-Cell[960, 33, 104, 1, 31, "Output"]
+Cell[10925, 260, 1467, 34, 144, "Input"],
+Cell[CellGroupData[{
+Cell[12417, 298, 660, 14, 23, "Print"],
+Cell[13080, 314, 733, 14, 23, "Print"],
+Cell[13816, 330, 742, 13, 23, "Print"]
+}, Open  ]]
 }, Open  ]],
-Cell[1079, 37, 8982, 223, 1392, "Input"],
 Cell[CellGroupData[{
-Cell[10086, 264, 657, 13, 58, "Input"],
-Cell[10746, 279, 437, 11, 23, "Print"],
-Cell[11186, 292, 659, 11, 31, "Output"],
-Cell[11848, 305, 244, 5, 23, "Print"]
+Cell[14607, 349, 4989, 117, 732, "Input"],
+Cell[CellGroupData[{
+Cell[19621, 470, 555, 13, 23, "Print"],
+Cell[20179, 485, 541, 11, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20769, 502, 6779, 182, 832, "Input"],
+Cell[CellGroupData[{
+Cell[27573, 688, 318, 5, 23, "Print"],
+Cell[27894, 695, 315, 5, 23, "Print"],
+Cell[28212, 702, 567, 13, 23, "Print"],
+Cell[28782, 717, 661, 15, 23, "Print"],
+Cell[29446, 734, 317, 5, 23, "Print"],
+Cell[29766, 741, 579, 13, 23, "Print"],
+Cell[30348, 756, 661, 15, 23, "Print"],
+Cell[31012, 773, 319, 5, 23, "Print"],
+Cell[31334, 780, 315, 5, 23, "Print"],
+Cell[31652, 787, 676, 15, 23, "Print"],
+Cell[32331, 804, 819, 18, 23, "Print"],
+Cell[33153, 824, 319, 5, 23, "Print"],
+Cell[33475, 831, 711, 16, 23, "Print"],
+Cell[34189, 849, 819, 18, 23, "Print"],
+Cell[35011, 869, 320, 5, 23, "Print"],
+Cell[35334, 876, 317, 5, 23, "Print"],
+Cell[35654, 883, 998, 20, 23, "Print"],
+Cell[36655, 905, 1285, 25, 23, "Print"],
+Cell[37943, 932, 319, 5, 23, "Print"],
+Cell[38265, 939, 1073, 20, 43, "Print"],
+Cell[39341, 961, 1285, 25, 23, "Print"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
